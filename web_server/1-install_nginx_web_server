@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
-# Install nginx web server
-# Install the Nginx server silently
-apt update -y > /dev/null 2>&1
-apt install nginx -y > /dev/null 2>&1
-# This overwrites the default page with my message
-rm -f /var/www/html/index.nginx-debian.html
-echo "Holberton School for the win!" | tee /var/www/html/index.html > /dev/null
-# Restart server
-service nginx restart > /dev/null 2>&1
+# This script installs and configures Nginx web server with a custom homepage
+
+# Update package lists
+apt-get update -y
+
+# Install Nginx
+apt-get install -y nginx
+
+# Create the index page with required content
+echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
+
+# Ensure Nginx is configured to serve the correct page
+# The default configuration already serves from /var/www/html
+
+# Restart Nginx without using systemctl
+service nginx restart
+
+# The default configuration already listens on port 80
