@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 - Lost in the Waste Stream</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: #eafff2;
+    text-align: center;
+    overflow: hidden;
+  }
+  h1 {
+    font-size: 8rem;
+    margin: 0;
+    color: #7CFC90;
+    text-shadow: 0 0 20px rgba(124, 252, 144, 0.6);
+  }
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    font-weight: 400;
+  }
+  p.subtitle {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #a9d6c4;
+    font-style: italic;
+  }
+  .bin {
+    font-size: 5rem;
+    margin: 2rem 0;
+    animation: bounce 2s infinite ease-in-out;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  a {
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    background: #7CFC90;
+    color: #0f2027;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: transform 0.2s ease;
+  }
+  a:hover {
+    transform: scale(1.05);
+  }
+  .leaf {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="bin">🗑️</div>
+  <h1>404</h1>
+  <h2>This page got sorted into the wrong bin.</h2>
+  <p class="subtitle">Ceci n'est pas une page — but recycling it into something useful is still possible.</p>
+  <a href="/">Take me back home</a>
+
+  <script>
+    const leaves = ['🍃', '♻️', '🌱'];
+    for (let i = 0; i < 15; i++) {
+      const leaf = document.createElement('div');
+      leaf.className = 'leaf';
+      leaf.textContent = leaves[Math.floor(Math.random() * leaves.length)];
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
+      leaf.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(leaf);
+    }
+  </script>
+
+</body>
+</html>
